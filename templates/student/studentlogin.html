@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div
+  class="flex justify-content-center align-items-center bg-dark"
+  style="height: 100vh; width: 100%; display: flex; justify-content: center"
+>
+  <div id="login" class="border border-danger w-25 p-5 rounded-4 shadow">
+    <form class="box" method="post">
+        {% csrf_token %}
+        <h1 class="text-white">Login</h1>
+        <p class="text-muted">Please enter your login and password!</p>
+
+        <div class="mb-4">
+            {% render_field form.username class="form-control bg-dark text-white" placeholder="Username" %} 
+        </div>
+        <div>
+            {% render_field form.password class="form-control bg-dark text-white" placeholder="Password" %}
+        </div>
+
+        <button class="btn btn-danger mt-3" style="width: 100%;">
+            Login
+        </button>   
+    </form>
+  </div>
+</div>
+
+{% endblock %}
